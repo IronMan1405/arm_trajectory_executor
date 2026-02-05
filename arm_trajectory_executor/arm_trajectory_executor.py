@@ -5,13 +5,13 @@ from sensor_msgs.msg import JointState
 
 import time
 
-class TrajecotryExecutor(Node):
+class TrajectoryExecutor(Node):
     def __init__(self):
         super().__init__("arm_trajectory_executor")
 		
         self.traj_sub = self.create_subscription(JointTrajectory, '/arm/joint_trajectory', self.trajectory_callback, 10)
         
-        self.state_pub = self.create_publishder(JointState, '/arm_joint_targets', 10)
+        self.state_pub = self.create_publisher(JointState, '/arm/joint_targets', 10)
 
         self.executing = False
 
@@ -43,7 +43,7 @@ class TrajecotryExecutor(Node):
 
 def main():
 	rclpy.init()
-	node = TrajecotryExecutor()
+	node = TrajectoryExecutor()
 	rclpy.spin(node)
 	rclpy.destroy_node()
 	rclpy.shutdown()

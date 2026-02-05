@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+		'arm_trajectory_executor = arm_trajectory_executor.arm_trajectory_executor:main',
         ],
     },
 )
