@@ -19,7 +19,7 @@ class TrajectoryExecutor(Node):
         self.state_pub = self.create_publisher(JointState, '/arm/joint_targets', 10)
 
         self.exec_state = "IDLE"
-        self.current_trajectory = True
+        self.current_trajectory = None
 
         self.emergency_active = False
 
